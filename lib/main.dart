@@ -1,60 +1,56 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-
-  );
+  runApp(MeuApp());
 }
 
-class Meupp extends Statelesswidget {
-  MeuApp{(super.key)}
-  @override
-  Widget build(BuildContext BuildContext) {
-    return
+class MeuApp extends StatelessWidget {
+  MeuApp({super.key});
 
-        MaterialApp(
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.purpleAccent,
           title: Center(
-            child: Text("nome do meu app")
-            ),
-        ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("olá, mundo!"),
-              Icon(Icons.add_location_sharp)
-              ],
+            child: Text("nome do meu app"),
           ),
         ),
+        body: PaginaInicial(),
       ),
-    ),
+    );
   }
 }
-class _PaginaInicial extends StatefulWidget {
+
+class PaginaInicial extends StatefulWidget {
   @override
   State<PaginaInicial> createState() => PaginaInicialState();
 }
 
-Class PaginaInicial extends State<PaginaInicial> {
-  String texto = "olá, mundo!"
-  @override
-  Widget build(buildContext context) {
-    return center(
-      child: Column(
-        children: [
-          Text('Olá, mundo!')
-          ElevateButton(
-            child: Text('mudar texto'),
-            onPressed:() {
-              texto = "texto alterado";
+class PaginaInicialState extends State<PaginaInicial> {
+  int contador = 0;
+  String texto = 'Olá, mundo!';
 
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(texto),
+          ElevatedButton(
+            child: Text('Mudar texto'),
+            onPressed: () {
+              setState(() {
+                contador++;
+                texto = "o texto foi alterado $(++contador) vezes";
+              });
             },
-          )
+          ),
         ],
-      )
-    )
+      ),
+    );
   }
 }
+

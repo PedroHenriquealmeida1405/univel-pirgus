@@ -44,7 +44,7 @@ class PaginaInicialState extends State<PaginaInicial> {
             onPressed: () {
               setState(() {
                 contador++;
-                texto = "o texto foi alterado $(++contador) vezes";
+                texto = "o texto foi alterado $(++contador) $(contador > 1 ? "vezes" : "vez";
               });
             },
           ),
